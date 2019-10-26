@@ -12,16 +12,25 @@ function handleErrors(response) {
 
 Api.prototype.get = function (user, repo) {
     const url = this.url + user + '/' + repo;
-    return fetch(url).then(response => response.json());
+    return fetch(url).then(response => {
+        if (response.status === 200){
+            response.json();
+        } else if (response.status === 404) {
+            alert('Nieprawidłowa nazwa użytkownika lub repozytorium');
+        }
+    });
 }
 
 Api.prototype.getStars = function (user, repo) {
-    return this.get(user, repo).then(handleErrors).then(response => console.log(response['stargazers_count'])).catch(alert('Nieprawidłowa nazwa użytkownika lub repozytorium'));
+    return this.get(user, repo)
+        .then(response => console.log(response['stargazers_count']))
 }
+/*
+const api = new Api ();
 
-const api = new Api();
 
 
 console.log(api.getStars('allegro', 'allegro-api'));
 console.log(api.getStars('jmczerwinska', 'Sklepik'));
-console.log(api.getStars('djkjl', 'djkjlk'));
+//console.log(api.getStars('djkjl', 'djkjlk'));
+*/

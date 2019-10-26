@@ -1,7 +1,9 @@
+/*
 function StarPicker (){
     this.apiContainer = document.querySelector('#main-container');
 }
-
+*/
+const api = new Api();
 let user = document.querySelector('#user');
 let repo = document.querySelector('#repo');
 const button = document.querySelector('#get-stars');
@@ -10,8 +12,8 @@ function checkInput(){
     button.disabled = !(user.value !== '' && repo.value !== '');
 };
 
-xUser.addEventListener('input', checkNames);
-oUser.addEventListener('input', checkNames);
+user.addEventListener('input', checkInput);
+repo.addEventListener('input', checkInput);
 button.addEventListener('click', function () {
-    game.init();
+    api.getStars(user.value, repo.value);
 });
