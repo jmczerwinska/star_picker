@@ -6,7 +6,7 @@ function handleErrors(response) {
     if (response.status === 404) {
         throw Error(response.statusText);
     }
-    return response['stargazers_count'];
+    return response;
 }
 
 
@@ -16,8 +16,7 @@ Api.prototype.get = function (user, repo) {
 }
 
 Api.prototype.getStars = function (user, repo) {
-    return this.get(user, repo).then(handleErrors)
-    //.then((response) => console.log(response['stargazers_count']));
+    return this.get(user, repo).then((response) => console.log(response['stargazers_count']));
 }
 
 const api = new Api();
@@ -25,3 +24,5 @@ const api = new Api();
 
 console.log(api.getStars('allegro', 'allegro-api'));
 console.log(api.getStars('jmczerwinska', 'Sklepik'));
+console.log(api.getStars('jmczerwinska', 'sas'));
+console.log(api.getStars('jmczerwinska', 'djkjlk'));
