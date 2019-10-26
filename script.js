@@ -16,7 +16,7 @@ Api.prototype.get = function (user, repo) {
 }
 
 Api.prototype.getStars = function (user, repo) {
-    return this.get(user, repo).then((response) => console.log(response['stargazers_count']));
+    return this.get(user, repo).then(handleErrors).then(response => console.log(response['stargazers_count'])).catch(alert('Nieprawidłowa nazwa użytkownika lub repozytorium'));
 }
 
 const api = new Api();
@@ -24,5 +24,4 @@ const api = new Api();
 
 console.log(api.getStars('allegro', 'allegro-api'));
 console.log(api.getStars('jmczerwinska', 'Sklepik'));
-console.log(api.getStars('jmczerwinska', 'sas'));
-console.log(api.getStars('jmczerwinska', 'djkjlk'));
+console.log(api.getStars('djkjl', 'djkjlk'));
