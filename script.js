@@ -2,28 +2,26 @@ const Api = function () {
     this.url = 'https://api.github.com/repos/';
 }
 
+function handleErrors(response) {
+    if (response.status === 404) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
+
 Api.prototype.get = function (user, repo) {
     const url = this.url + user + '/' + repo;
-    return fetch(url, {
-        method: 'GET'
-    }).then(response => response.json());
+    return fetch(url).then(response => response.json());
 }
 
 Api.prototype.getStars = function (user, repo) {
-    try {
-        return this.get(user, repo).then((response) => console.log(response['stargazers_count']));
-    } catch (error) {
-        console.log(0)
-    }
+    this.get(user, repo).then(handleErrors).then((response) => console.log(response['stargazers_count']));
+}
 
 const api = new Api();
 
-const allegroApi = api.getStars('allegro', 'allegro-api').then((resp) => {
-    console.log(resp)
-});
-console.log(starCount);
+console.log(api.getStars('allegro', 'allegro-api'));
 
-const sklep = api.getStars('jmczerwinska', 'sklep').then((resp) => {
-    console.log(resp)
-});
+const sklep = api.getStars('jmczerwinska', 'Sklepik')
 console.log(sklep);
