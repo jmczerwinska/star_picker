@@ -1,0 +1,32 @@
+html {
+    background-color: beige;
+}
+
+h1 {
+    font-family: Aladin;
+    color: rgb(7, 97, 7);
+}
+.input{
+    margin: 5px 0;
+}
+
+#answer{
+    display: none;
+    border: solid 1px rgb(12, 136, 12);
+    background-color: rgba(194, 243, 194, 0.75);
+    width: 60%;
+    padding: 25px;
+    margin: 20px auto;
+    text-align: center;
+}
+#answer .response {
+    color: rgb(12, 136, 12);
+    font-weight: bold;
+}
+
+#get-stars{
+    background-color: rgb(7, 97, 7);
+    color: white;
+    border-color: rgb(7, 97, 7);
+    margin: 18px 0;
+}

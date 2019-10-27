@@ -6,28 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stars Picker</title>
+    <link href="https://fonts.googleapis.com/css?family=Aladin&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="main-container">
-        <h1>Star Picker</h1>
-        <p>Sprawdź ile gwiazdek ma wybrany projekt na Github </p>
-    </div>
-    Nazwa użytkownika:<input type="text" id="user">
-    </div>
-    <div>
-        Nazwa repozytorium: <input type="text" id="repo">
-    </div>
-    <button id="get-stars" disabled="disabled">Wyświetl gwiazdki</button>
-    <div id="answer" style="display: none">
-        <p>Repozytorium <span class="response" id="user-name"></span>
-            użytkownika <span class="response" id="repo-name"></span>
-            ma <span class="response" id="count"></span> gwiazdek.
-        </p>
+        <h1>S t a r   P i c k e r</h1>
+        <p>Sprawdź ile gwiazdek ma wybrany projekt na Github: </p>
+    
+        <div>
+            Nazwa użytkownika: <input type="text" class="input" id="user">
+        </div>
+        <div>
+        Nazwa repozytorium: <input type="text" class="input" id="repo">
+        </div>
+        <button id="get-stars" disabled="disabled">Wyświetl gwiazdki</button>
+        <div id="answer">
+            <p>Repozytorium <span class="response" id="user-name"></span>
+                użytkownika <span class="response" id="repo-name"></span>
+                ma <span class="response" id="count"></span> gwiazdek.
+            </p>
+        </div>
     </div>
 
     <script src="script.js"></script>
-    <script src="script2.js"></script>
 </body>
 
 </html>
