@@ -18,8 +18,8 @@
  Api.prototype.getStars = function (user, repo) {
      return this.get(user, repo)
          .then(response => {
-             count.innerHTML = response['stargazers_count'];
-             showAnswer();
+             const stargazers = response['stargazers_count'];
+             showAnswer(stargazers);
          }).catch(error => {
              console.log(error);
              alert('Nieprawidłowa nazwa użytkownika lub repozytorium');
@@ -28,22 +28,24 @@
 
  const api = new Api();
 
-let user = document.querySelector('#user');
-let repo = document.querySelector('#repo');
-let answer = document.querySelector('#answer');
-let count = document.querySelector('#count');
+const user = document.querySelector('#user');
+const repo = document.querySelector('#repo');
+
 const button = document.querySelector('#get-stars');
 
 function checkInput(){
     button.disabled = !(user.value !== '' && repo.value !== '');
 };
 
-const showAnswer = function(){
+const showAnswer = function(str){
     this.userName = document.querySelector('#user-name');
     this.repoName = document.querySelector('#repo-name');
+    this.answer = document.querySelector('#answer');
+    this.count = document.querySelector('#count');
     this.userName.innerHTML = user.value;
     this.repoName.innerHTML = repo.value;
-    answer.style.display = 'block';
+    this.count.innerHTML = str;
+    this.answer.style.display = 'block';
 }
 
 user.addEventListener('input', checkInput);
