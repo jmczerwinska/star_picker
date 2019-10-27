@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stars Picker</title>
 </head>
+
 <body>
     <div class="main-container">
         <h1>Star Picker</h1>
         <p>Sprawdź ile gwiazdek ma wybrany projekt na Github </p>
     </div>
-        Nazwa użytkownika:<input type="text" id="user">
+    Nazwa użytkownika:<input type="text" id="user">
     </div>
     <div>
         Nazwa repozytorium: <input type="text" id="repo">
     </div>
     <button id="get-stars" disabled="disabled">Wyświetl gwiazdki</button>
+    <div id="answer" style="display: none">
+        <p>Repozytorium <span class="response" id="user-name"></span>
+            użytkownika <span class="response" id="repo-name"></span>
+            ma <span class="response" id="count"></span> gwiazdek.
+        </p>
+    </div>
+
     <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
+
 </html>
