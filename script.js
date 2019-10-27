@@ -15,11 +15,11 @@
      return fetch(url).then(this.handleResponse);
  }
 
- Api.prototype.getStars = function (user, repo) {
+ Api.prototype.getStars = function (user, repo,callback) {
      return this.get(user, repo)
          .then(response => {
              const stargazers = response['stargazers_count'];
-             showAnswer(stargazers);
+             callback(stargazers);
          }).catch(error => {
              console.log(error);
              alert('Nieprawidłowa nazwa użytkownika lub repozytorium');
@@ -51,5 +51,5 @@ const showAnswer = function(str){
 user.addEventListener('input', checkInput);
 repo.addEventListener('input', checkInput);
 button.addEventListener('click', function(){
-   api.getStars(user.value, repo.value);
+   api.getStars(user.value, repo.value, showAnswer);
 });
