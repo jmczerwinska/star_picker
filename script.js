@@ -17,13 +17,12 @@
 
  Api.prototype.getStars = function (user, repo,callback) {
      return this.get(user, repo)
-         .then(response => {
-             const stargazers = response['stargazers_count'];
-             callback(stargazers);
-         }).catch(error => {
+        .then(response => response['stargazers_count'])
+        .then(response => callback(response))
+        .catch(error => {
              console.log(error);
              alert('Nieprawidłowa nazwa użytkownika lub repozytorium');
-         })
+        })
  }
 
  const api = new Api();
